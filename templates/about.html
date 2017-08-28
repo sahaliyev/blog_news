@@ -1,0 +1,37 @@
+{% extends 'index.html'%}
+{% load static %}
+{% block title %} <title>About</title> {% endblock %}
+
+{% block content %}
+
+    <!-- Page Header -->
+    <header class="masthead" style="background-image: url({% static 'img/about-bg.jpg' %})">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="page-heading">
+              {% for title in header_text %}
+              <h1>{{ title.header_text }}</h1>
+              <span class="subheading">{{ title.sub_header_text }}</span>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+      <div class="row">
+        {% for x in text %}
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <p>{{ x.text }}</p>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <hr>
+
+
+{% endblock %}

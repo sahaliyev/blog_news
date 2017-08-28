@@ -1,0 +1,38 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block title %}  <title>Post {{post_title.post_title}}</title> {% endblock %}
+
+{% block content %}
+<!-- Page Header -->
+<header class="masthead" style="background-image: url({% static 'img/post-bg.jpg' %})">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="post-heading">
+          <h1>{{post_title.post_title}}</h1>
+          <h2 class="subheading">{{post_title.post_sub_title}}</h2>
+          <span class="meta">Posted by
+            {{post_title.author.get_full_name}}
+            on {{ post_title.pub_date|date:"F d, Y" }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Post Content -->
+<article>
+  <div class="container">
+    <div class="row">
+
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <p>{{ post_title.post_context }}</p>
+      </div>
+
+    </div>
+  </div>
+</article>
+
+<hr>
+
+{% endblock %}
